@@ -32,6 +32,7 @@
     "react-router-dom": "^6.2.2",
     "ssr-window": "4.0.2",
     "string-hex": "^1.0.0",
+    "tronweb": "^4.2.0",
     "web3": "^1.7.3"
   },
   "peerDependencies": {
