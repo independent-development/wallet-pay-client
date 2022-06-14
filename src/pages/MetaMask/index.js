@@ -40,7 +40,8 @@ export default function MetaMask() {
   }, []);
 
   const handleConnectWallte = useCallback(async () => {
-    await ethereum.enable();
+    const result = await ethereum.request({ method: "eth_requestAccounts" });
+    console.log("result==>", result);
     const accounts = await ethereum.request({ method: "eth_accounts" });
     console.log(accounts);
     set_accounts(accounts);
