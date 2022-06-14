@@ -24,6 +24,7 @@ export default function MetaMask() {
   const handleCallback = useCallback(async () => {
     set_wallet_status("已连接");
     const accounts = await ethereum.request({ method: "eth_accounts" });
+    console.log("accounts", accounts);
     set_accounts(accounts);
   }, []);
 
@@ -39,8 +40,9 @@ export default function MetaMask() {
     }
   }, []);
 
-  const handleClick = useCallback(async () => {
+  const handleConnectWallte = useCallback(async () => {
     const accounts = await ethereum.request({ method: "eth_accounts" });
+    console.log(accounts);
     set_accounts(accounts);
   }, []);
 
@@ -67,7 +69,7 @@ export default function MetaMask() {
   return (
     <Space direction="vertical">
       <Space>
-        <Button type="primary" icon={(<LinkOutlined />)} onClick={handleClick}>连接到MateMask</Button>
+        <Button type="primary" icon={(<LinkOutlined />)} onClick={handleConnectWallte}>连接到MateMask</Button>
         <Button type="primary" icon={(<PayCircleOutlined />)} onClick={handleClickPay}>测试支付 20 ether</Button>
       </Space>
       <Alert type="success" message={accounts.join("\n")} />
