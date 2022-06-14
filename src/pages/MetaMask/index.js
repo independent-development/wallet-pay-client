@@ -22,9 +22,9 @@ export default function MetaMask() {
   const [accounts, set_accounts] = useState([]);
 
   const handleCallback = useCallback(async () => {
-    set_wallet_status("已连接");
     const accounts = await ethereum.request({ method: "eth_accounts" });
     console.log("accounts", accounts);
+    set_wallet_status("已连接");
     set_accounts(accounts);
   }, []);
 
@@ -32,7 +32,6 @@ export default function MetaMask() {
     ethereum.on("connect", handleCallback);
     ethereum.on("accountsChanged", handleCallback);
     ethereum.on("disconnect", () => set_wallet_status("未连接"));
-    handleCallback();
     return () => {
       ethereum.on("connect", handleCallback);
       ethereum.on("accountsChanged", handleCallback);
@@ -41,6 +40,7 @@ export default function MetaMask() {
   }, []);
 
   const handleConnectWallte = useCallback(async () => {
+    await ethereum.enable();
     const accounts = await ethereum.request({ method: "eth_accounts" });
     console.log(accounts);
     set_accounts(accounts);
