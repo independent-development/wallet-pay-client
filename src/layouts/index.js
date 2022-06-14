@@ -6,7 +6,7 @@ import React, { useCallback } from "react";
 // import propTypes from "prop-types";
 
 // import css from "./style.scss";
-// import css from "./style.less";
+import css from "./style.less";
 
 export default function BasicLayout(props) {
 
@@ -19,14 +19,17 @@ export default function BasicLayout(props) {
   }, [navigate]);
 
   return (
-    <Space direction="vertical">
-      <Segmented
-        options={["metamask", "tronlink"]}
-        value={location.pathname.replace("/", "")}
-        onChange={handleTrigger}
-      />
-      <Outlet />
-    </Space >
+    <div className={css.container} >
+      <Space direction="vertical" className={css.content}>
+        <Segmented
+          block
+          options={["metamask", "tronlink"]}
+          value={location.pathname.replace("/", "")}
+          onChange={handleTrigger}
+        />
+        <Outlet />
+      </Space >
+    </div>
   )
 };
 

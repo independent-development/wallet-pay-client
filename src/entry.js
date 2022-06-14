@@ -6,6 +6,8 @@ import BasicLayout from "@/layouts";
 import MetaMask from "@/pages/MetaMask";
 import TronLink from "@/pages/TronLink";
 
+import "./global.less";
+
 export default () => {
   return (
     <Routes>
