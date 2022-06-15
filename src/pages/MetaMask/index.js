@@ -73,7 +73,7 @@ export default function MetaMask() {
         <Button type="primary" icon={(<LinkOutlined />)} onClick={handleConnectWallte}>连接到MateMask</Button>
         <Button type="primary" icon={(<PayCircleOutlined />)} onClick={handleClickPay}>测试支付 20 ether</Button>
       </Space>
-      <Alert type="success" message={accounts.join("\n")} />
+      <Alert type="info" message={`当前账户为:${accounts[0]}`} />
     </Space>
   )
 }
